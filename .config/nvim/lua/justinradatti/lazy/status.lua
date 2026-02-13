@@ -17,7 +17,7 @@ return {
                 a = { fg = colors.white },
                 b = { fg = colors.white },
                 c = { fg = colors.white },
-                z = { fg = colors.grey, bg = colors.black },
+                z = { fg = colors.grey },
             },
 
             insert = {},
