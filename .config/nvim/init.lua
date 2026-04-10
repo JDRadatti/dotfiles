@@ -231,4 +231,4 @@ require("gruvbox").setup({
 -- SET COLORSCHEME
 -- vim.cmd("colorscheme gruvbox")
 vim.cmd("colorscheme default")
-vim.api.nvim_set_hl(0, 'StatusLine', { fg = '#FFFFFF', bg = 'none' })
+vim.api.nvim_set_hl(0, 'StatusLine', { fg = '#FFFFFF', bg = 'none })
