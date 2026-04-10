@@ -1,6 +1,9 @@
 ---
 --- GENERAL CONFIG
 ---
+
+vim.opt.background = "dark"
+
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
@@ -217,7 +220,6 @@ vim.keymap.set("n", "<leader>gd", vim.cmd.Gvdiffsplit)
 -- <Leader>hp == Preview Hunk
 
 -- COLORSCHEME GRUVBOX
-vim.o.background = "dark"
 require("gruvbox").setup({
   terminal_colors = true,
   contrast = "soft", -- can be "hard", "soft" or empty string
@@ -225,4 +227,5 @@ require("gruvbox").setup({
 })
 
 -- SET COLORSCHEME
-vim.cmd("colorscheme gruvbox")
+-- vim.cmd("colorscheme gruvbox")
+vim.cmd("colorscheme default")
