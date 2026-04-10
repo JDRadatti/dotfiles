@@ -15,8 +15,11 @@ config.window_padding = {
     bottom = "0",
 }
 
-config.font_size = 24
-config.enable_tab_bar = false
+config.font_size = 14
+config.enable_tab_bar = true
+config.tab_bar_at_bottom = true
+-- Hide tab bar if only one tab is open
+config.hide_tab_bar_if_only_one_tab = true
 config.window_decorations = "RESIZE"
 
 wezterm.on('update-right-status', function(window, pane)
