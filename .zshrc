@@ -23,9 +23,9 @@ setopt prompt_subst
 
 autoload -Uz vcs_info 
 precmd () { vcs_info }
-zstyle ':vcs_info:git*' formats ' (%F{blue}%b%F{blue})'
+zstyle ':vcs_info:git*' formats ' (%F{green}%b%F{green})'
 
-export PS1='%F{blue}%(5~|%-1~/⋯/%3~|%4~)%F{blue}${vcs_info_msg_0_} >>> %F{white}'
+export PS1='%F{green}%(5~|%-1~/⋯/%3~|%4~)%F{green}${vcs_info_msg_0_} >>> %F{white}'
 
  export NVM_DIR="$HOME/.nvm"
  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
