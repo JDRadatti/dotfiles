@@ -1,9 +1,9 @@
 local wezterm = require 'wezterm'
 local config = wezterm.config_builder()
 
-config.color_scheme = 'rose-pine'
+config.color_scheme = 'NvimDark'
 config.color_schemes = {
-    ['rose-pine'] = {
+    ['gruvbox'] = {
         background = 'black',
     },
 }
@@ -85,8 +85,8 @@ config.keys = {
     },
     -- Show Tab Navigator
     {
-        key = 't',
-        mods = 'LEADER',
+        key = 'j',
+        mods = 'CMD',
         action = wezterm.action.ShowTabNavigator
     },
     -- Previous Tab
