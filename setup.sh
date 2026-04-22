@@ -1,7 +1,6 @@
 #!/bin/bash
 
 # Set the destination directory.
-
 DEST_DIR=$HOME
 
 # Array of files and directories to ignore.
@@ -39,10 +38,24 @@ for item in .[!.]* *; do
   if is_ignored "$item"; then
     continue
   fi
-  # Create the symlink in the destination directory
-  ln -s "$PWD/$item" "$DEST_DIR/$item"
+
+  target="$DEST_DIR/$item"
+
+  # If a symlink already points to the right place, skip it
+  if [ -L "$target" ] && [ "$(readlink "$target")" = "$PWD/$item" ]; then
+    echo "Already linked: $item"
+    continue
+  fi
+
+  # If something exists at the target path (file, dir, or wrong symlink), back it up
+  if [ -e "$target" ] || [ -L "$target" ]; then
+    echo "Backing up existing: $target -> $target.bak"
+    mv "$target" "$target.bak"
+  fi
+
+  ln -s "$PWD/$item" "$target"
+  echo "Linked: $item"
 done
 
 echo "Symlinks created in '$DEST_DIR'"
 exit 0
-
