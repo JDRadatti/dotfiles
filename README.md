@@ -4,12 +4,12 @@ A compilation of important configuration files.
 
 ## Install
 
-Clone the repository to your home directory and symlink with the following commands.
+1. Install stow with `brew install stow` or `sudo apt install stow`.
+2. Clone the repository and symlink with stow.
 ```sh
 git clone https://github.com/JDRadatti/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
-chmod +x setup.sh
-./setup.sh
+stow --target="$HOME" .
 ```
 
 ## Additional Installations
