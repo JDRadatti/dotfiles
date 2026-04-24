@@ -89,6 +89,7 @@ vim.lsp.config['rust_analyzer'] = {
 }
 vim.lsp.enable('rust_analyzer')
 
+-- CLANG
 vim.lsp.config['clangd'] = {
   cmd = { 'clangd' },
   filetypes = { 'c', 'cpp', 'objc', 'objcpp' },
@@ -99,6 +100,33 @@ vim.lsp.config['clangd'] = {
   settings = {}
 }
 vim.lsp.enable('clangd')
+
+-- PYTHON
+vim.lsp.config['pyright'] = {
+  cmd = { 'pyright-langserver', '--stdio' },
+  filetypes = { 'python' },
+  root_markers = {
+    'pyproject.toml',
+    'setup.py',
+    'setup.cfg',
+    'requirements.txt',
+    '.git',
+  },
+  settings = {
+    python = {
+      analysis = {
+        typeCheckingMode = 'basic',
+        autoSearchPaths = true,
+        useLibraryCodeForTypes = true,
+        diagnosticMode = 'openFilesOnly',
+        diagnosticSeverityOverrides = {
+          reportPrivateImportUsage = 'none',
+        },
+      },
+    },
+  },
+}
+vim.lsp.enable('pyright')
 
 
 -- LSP WINDOW DISPLAY
