@@ -123,9 +123,6 @@ vim.lsp.config["pyright"] = {
 				autoSearchPaths = true,
 				useLibraryCodeForTypes = true,
 				diagnosticMode = "openFilesOnly",
-				diagnosticSeverityOverrides = {
-					reportPrivateImportUsage = "none",
-				},
 			},
 		},
 	},
@@ -151,10 +148,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
 
 		local opts = { buffer = ev.buf }
-		vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, opts)
+		vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
 		vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
 		vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
-		vim.keymap.set("n", "<space>f", function()
+		vim.keymap.set("n", "<leader>f", function()
 			vim.lsp.buf.format({ async = true })
 		end, opts)
 	end,
@@ -278,6 +275,21 @@ conform.setup({
 		lua = { "stylua" },
 		python = { "black" },
 		rust = { "rustfmt", lsp_format = "fallback" },
+		c = { "clang-format" },
+		cpp = { "clang-format" },
+		json = { "prettier" },
+		jsonc = { "prettier" },
+		javascript = { "prettier" },
+		typescript = { "prettier" },
+		javascriptreact = { "prettier" },
+		typescriptreact = { "prettier" },
+		css = { "prettier" },
+		html = { "prettier" },
+	},
+	formatters = {
+		["clang-format"] = {
+			prepend_args = { "--style=Google" },
+		},
 	},
 	format_on_save = {
 		timeout_ms = 500,
