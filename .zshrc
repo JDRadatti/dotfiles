@@ -8,7 +8,8 @@ alias cdv="cd ~/.config/nvim/"
 export GOPATH="$HOME/.go"
 export ZIGPATH="$HOME/.zig"
 export PSQLPATH="/Library/PostgreSQL/18/bin"
-export PATH=$PATH:$GOPATH/bin:$ZIGPATH:$PSQLPATH
+export BINPATH="$HOME/.local/bin"
+export PATH=$PATH:$BINPATH:$GOPATH/bin:$ZIGPATH:$PSQLPATH
 
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
