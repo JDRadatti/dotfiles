@@ -23,7 +23,7 @@ config.keys = {
 	-- Full Screen
 	{
 		key = "f",
-		mods = "CMD|CTRL",
+		mods = "ALT|CTRL",
 		action = wezterm.action.ToggleFullScreen,
 	},
 
@@ -37,7 +37,7 @@ config.keys = {
 	-- Copy Mode
 	{
 		key = "c",
-		mods = "CTRL",
+		mods = "ALT",
 		action = wezterm.action.ActivateCopyMode,
 	},
 
@@ -50,8 +50,8 @@ config.keys = {
 
 	-- Close pane
 	{
-		key = "x",
-		mods = "LEADER",
+		key = "w",
+		mods = "CTRL",
 		action = wezterm.action.CloseCurrentPane({ confirm = true }),
 	},
 
@@ -70,25 +70,25 @@ config.keys = {
 	-- Spawn Tab (Tmux window)
 	{
 		key = "t",
-		mods = "CMD",
+		mods = "CTRL",
 		action = wezterm.action.SpawnTab("CurrentPaneDomain"),
 	},
 	-- Show Tab Navigator
 	{
 		key = "j",
-		mods = "CMD",
+		mods = "ALT",
 		action = wezterm.action.ShowTabNavigator,
 	},
 	-- Previous Tab
 	{
 		key = "{",
-		mods = "CMD",
+		mods = "CTRL",
 		action = wezterm.action.ActivateTabRelative(-1),
 	},
 	-- Next Tab
 	{
 		key = "}",
-		mods = "CMD",
+		mods = "CTRL",
 		action = wezterm.action.ActivateTabRelative(1),
 	},
 	-- Resize panes
@@ -233,5 +233,23 @@ config.keys = {
 		action = wezterm.action.ReloadConfiguration,
 	},
 }
+
+-- Ctrl+1-9 to switch tabs
+for i = 1, 9 do
+	table.insert(config.keys, {
+		key = tostring(i),
+		mods = "ALT",
+		action = wezterm.action.ActivateTab(i - 1), -- 0-indexed
+	})
+end
+
+  -- CTRL+ALT + number to move tab to that position
+for i = 1, 8 do
+  table.insert(config.keys, {
+    key = tostring(i),
+    mods = 'CTRL|ALT',
+    action = wezterm.action.MoveTab(i - 1),
+  })
+end
 
 return config
