@@ -25,6 +25,10 @@
       "rev": "48d2656e54d3e3953ae647153ccdaffa50d4d76b",
       "src": "https://github.com/nvim-telescope/telescope.nvim"
     },
+    "trouble.nvim": {
+      "rev": "bd67efe408d4816e25e8491cc5ad4088e708a69a",
+      "src": "https://github.com/folke/trouble.nvim"
+    },
     "undotree": {
       "rev": "6fa6b57cda8459e1e4b2ca34df702f55242f4e4d",
       "src": "https://github.com/mbbill/undotree"

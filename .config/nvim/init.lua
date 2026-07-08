@@ -206,10 +206,16 @@ vim.pack.add({
 	{
 		src = "https://github.com/stevearc/conform.nvim",
 	},
+
+    -- TROUBLE
+    {
+        src = "https://github.com/folke/trouble.nvim",
+    },
 })
 local telescope = require("telescope")
 local harpoon = require("harpoon")
 local conform = require("conform")
+local trouble = require("trouble")
 
 -- HARPOON
 harpoon:setup()
@@ -263,6 +269,9 @@ vim.keymap.set("n", "<leader>gs", function()
 	end
 end)
 vim.keymap.set("n", "<leader>gd", vim.cmd.Gvdiffsplit)
+vim.keymap.set("n", "<leader>gm", ":Gvdiffsplit!<CR>") 
+vim.keymap.set('n', 'gl', ':diffget //2<CR>', { desc = 'Diff get from Left (Target)' })
+vim.keymap.set('n', 'gr', ':diffget //3<CR>', { desc = 'Diff get from Right (Remote)' })
 
 -- GIT GUTTER
 -- <Leader>hs == Stage Hunk
@@ -291,11 +300,17 @@ conform.setup({
 			prepend_args = { "--style=Google" },
 		},
 	},
-	format_on_save = {
-		timeout_ms = 500,
-		lsp_format = "fallback",
-	},
 })
+
+-- TROUBLE
+trouble.setup({})
+
+vim.keymap.set("n", "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>", { desc = "Diagnostics (Trouble)" })
+vim.keymap.set("n", "<leader>xX", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", { desc = "Buffer Diagnostics (Trouble)" })
+vim.keymap.set("n", "<leader>cs", "<cmd>Trouble symbols toggle focus=false<cr>", { desc = "Symbols (Trouble)" })
+vim.keymap.set("n", "<leader>cl", "<cmd>Trouble lsp toggle focus=false win.position=right<cr>", { desc = "LSP (Trouble)" })
+vim.keymap.set("n", "<leader>xL", "<cmd>Trouble loclist toggle<cr>", { desc = "Location List (Trouble)" })
+vim.keymap.set("n", "<leader>xQ", "<cmd>Trouble qflist toggle<cr>", { desc = "Quickfix List (Trouble)" })
 
 -- COLORSCHEME GRUVBOX
 require("gruvbox").setup({
