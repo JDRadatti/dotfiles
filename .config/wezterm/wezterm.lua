@@ -8,19 +8,9 @@ config.color_schemes = {
 	},
 }
 
-config.window_padding = {
-	left = 10,
-	right = 4,
-	top = 10,
-	bottom = "0",
-}
-
-config.font_size = 14
-config.enable_tab_bar = true
-config.tab_bar_at_bottom = true
--- Hide tab bar if only one tab is open
-config.hide_tab_bar_if_only_one_tab = true
-config.window_decorations = "RESIZE"
+--config.font_size = 14
+config.enable_tab_bar = false
+config.enable_wayland = false
 
 wezterm.on("update-right-status", function(window, pane)
 	window:set_right_status(window:active_workspace())
