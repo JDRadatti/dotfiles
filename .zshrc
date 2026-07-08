@@ -5,11 +5,21 @@ alias cdn="cd ~/Documents/GitHub/notes"
 alias cdd="cd ~/.dotfiles/"
 alias cdv="cd ~/.config/nvim/"
 
+export GOROOT="/usr/local/go"
+export CMAKEROOT="/usr/local/cmake-4.3.2-linux-x86_64"
 export GOPATH="$HOME/.go"
+export NVIMPATH="/opt/nvim-linux-x86_64/bin"
 export ZIGPATH="$HOME/.zig"
 export PSQLPATH="/Library/PostgreSQL/18/bin"
 export BINPATH="$HOME/.local/bin"
-export PATH=$PATH:$BINPATH:$GOPATH/bin:$ZIGPATH:$PSQLPATH
+export OPENCODEPATH=/home/justin/.opencode/bin
+export PATH=$PATH:$OPENCODEPATH:$BINPATH:$GOROOT/bin:$GOPATH/bin:$ZIGPATH:$PSQLPATH:$CMAKEROOT/bin:$NVIMPATH:
+
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - zsh)"
+# end pyenv
 
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
@@ -34,3 +44,8 @@ export PS1='%F{green}%(5~|%-1~/⋯/%3~|%4~)%F{green}${vcs_info_msg_0_} >>> %F{wh
  
  [ -f "/Users/justinradatti/.ghcup/env" ] && . "/Users/justinradatti/.ghcup/env" # ghcup-env
  vcs_info setup
+
+# Source Vivado 
+source /opt/Xilinx/2025.2/Vivado/settings64.sh
+export PATH="/home/justin/.config/herd-lite/bin:$PATH"
+export PHP_INI_SCAN_DIR="/home/justin/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
