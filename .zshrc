@@ -4,6 +4,7 @@ alias cdg="cd ~/Documents/GitHub/"
 alias cdn="cd ~/Documents/GitHub/notes"
 alias cdd="cd ~/.dotfiles/"
 alias cdv="cd ~/.config/nvim/"
+alias db="rust-gdb"
 
 export GOROOT="/usr/local/go"
 export CMAKEROOT="/usr/local/cmake-4.3.2-linux-x86_64"
@@ -45,7 +46,3 @@ export PS1='%F{green}%(5~|%-1~/⋯/%3~|%4~)%F{green}${vcs_info_msg_0_} >>> %F{wh
  [ -f "/Users/justinradatti/.ghcup/env" ] && . "/Users/justinradatti/.ghcup/env" # ghcup-env
  vcs_info setup
 
-# Source Vivado 
-source /opt/Xilinx/2025.2/Vivado/settings64.sh
-export PATH="/home/justin/.config/herd-lite/bin:$PATH"
-export PHP_INI_SCAN_DIR="/home/justin/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
