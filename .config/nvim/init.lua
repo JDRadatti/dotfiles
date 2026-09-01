@@ -193,9 +193,9 @@ vim.pack.add({
 		src = "https://github.com/tpope/vim-fugitive",
 	},
 
-	-- GIT GUTTER
+	-- GITSIGNS
 	{
-		src = "https://github.com/airblade/vim-gitgutter",
+		src = "https://github.com/lewis6991/gitsigns.nvim",
 	},
 
 	-- COLOR THEME: Gruvbox
@@ -271,13 +271,8 @@ vim.keymap.set("n", "<leader>gs", function()
 end)
 vim.keymap.set("n", "<leader>gd", vim.cmd.Gvdiffsplit)
 vim.keymap.set("n", "<leader>gm", ":Gvdiffsplit!<CR>") 
-vim.keymap.set('n', 'gl', ':diffget //2<CR>', { desc = 'Diff get from Left (Target)' })
-vim.keymap.set('n', 'gr', ':diffget //3<CR>', { desc = 'Diff get from Right (Remote)' })
-
--- GIT GUTTER
--- <Leader>hs == Stage Hunk
--- <Leader>hu == Undo Staged Hunk.
--- <Leader>hp == Preview Hunk
+vim.keymap.set('n', 'g<', ':diffget //2<CR>', { desc = 'Diff get from Left (Target)' })
+vim.keymap.set('n', 'g>', ':diffget //3<CR>', { desc = 'Diff get from Right (Remote)' })
 
 -- CONFORM
 conform.setup({
@@ -303,6 +298,18 @@ conform.setup({
 	},
 })
 
+-- GITSIGNS
+local gitsigns_ok, gitsigns = pcall(require, "gitsigns")
+if gitsigns_ok then
+  gitsigns.setup({})
+end
+vim.keymap.set("n", "]h", "<cmd>Gitsigns next_hunk<CR>", { desc = "Next hunk" })
+vim.keymap.set("n", "[h", "<cmd>Gitsigns prev_hunk<CR>", { desc = "Previous hunk" })
+vim.keymap.set("n", "<leader>hs", "<cmd>Gitsigns stage_hunk<CR>", { desc = "Stage hunk" })
+vim.keymap.set("n", "<leader>hr", "<cmd>Gitsigns reset_hunk<CR>", { desc = "Reset hunk" })
+vim.keymap.set("n", "<leader>hu", "<cmd>Gitsigns undo_stage_hunk<CR>", { desc = "Undo stage hunk" })
+vim.keymap.set("n", "<leader>hp", "<cmd>Gitsigns preview_hunk<CR>", { desc = "Preview hunk" })
+
 -- TROUBLE
 trouble.setup({})
 
@@ -324,3 +331,6 @@ require("gruvbox").setup({
 -- vim.cmd("colorscheme gruvbox")
 vim.cmd("colorscheme default")
 vim.api.nvim_set_hl(0, "StatusLine", { fg = "#FFFFFF", bg = "none" })
+--vim.api.nvim_set_hl(0, "GitSignsAddLn",    { bg = "#1e3b1e" })
+--vim.api.nvim_set_hl(0, "GitSignsDeleteLn", { bg = "#3b1e1e" })
+--vim.api.nvim_set_hl(0, "GitSignsChangeLn", { bg = "#3b3b1e" })
