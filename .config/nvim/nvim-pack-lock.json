@@ -1,8 +1,24 @@
 {
   "plugins": {
+    "ashen.nvim": {
+      "rev": "bfb04bd50b69d863469b2deb9fb361cf0d945ba7",
+      "src": "https://github.com/ficd0/ashen.nvim"
+    },
+    "black-metal": {
+      "rev": "ae50fc0f292a1710309090cb8ad8b3512f883251",
+      "src": "https://github.com/metalelf0/black-metal-theme-neovim"
+    },
+    "black-metal-theme-neovim": {
+      "rev": "ae50fc0f292a1710309090cb8ad8b3512f883251",
+      "src": "https://github.com/metalelf0/black-metal-theme-neovim"
+    },
     "conform.nvim": {
       "rev": "dca1a190aa85f9065979ef35802fb77131911106",
       "src": "https://github.com/stevearc/conform.nvim"
+    },
+    "gitsigns.nvim": {
+      "rev": "31d6fb2d618bca1482b9f274751ead5f03461408",
+      "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
     "gruvbox.nvim": {
       "rev": "334d5fd49fc8033f26408425366c66c6390c57bb",
@@ -12,6 +28,10 @@
       "rev": "87b1a3506211538f460786c23f98ec63ad9af4e5",
       "src": "https://github.com/theprimeagen/harpoon",
       "version": "'harpoon2'"
+    },
+    "koda.nvim": {
+      "rev": "a7da3ced59eadafbda6eb4d7f7e2a6a3d9ecf858",
+      "src": "https://github.com/oskarnurm/koda.nvim"
     },
     "plenary": {
       "rev": "fcb3e9ac127d178b4c189088396165b3facc219e",

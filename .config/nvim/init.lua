@@ -198,10 +198,11 @@ vim.pack.add({
 		src = "https://github.com/lewis6991/gitsigns.nvim",
 	},
 
-	-- COLOR THEME: Gruvbox
+	-- COLOR THEME: Black Metal
 	{
-		src = "https://github.com/ellisonleao/gruvbox.nvim",
-	},
+      src = "https://github.com/metalelf0/black-metal-theme-neovim",
+      name = "black-metal"
+    },
 
 	-- CONFORM
 	{
@@ -325,12 +326,10 @@ require("gruvbox").setup({
 	terminal_colors = true,
 	contrast = "soft", -- can be "hard", "soft" or empty string
 	transparent_mode = true,
+-- COLORSCHEME BLACK METAL BATHORY
+require("black-metal").setup({
+  theme = "bathory",
 })
 
 -- SET COLORSCHEME
--- vim.cmd("colorscheme gruvbox")
-vim.cmd("colorscheme default")
-vim.api.nvim_set_hl(0, "StatusLine", { fg = "#FFFFFF", bg = "none" })
---vim.api.nvim_set_hl(0, "GitSignsAddLn",    { bg = "#1e3b1e" })
---vim.api.nvim_set_hl(0, "GitSignsDeleteLn", { bg = "#3b1e1e" })
---vim.api.nvim_set_hl(0, "GitSignsChangeLn", { bg = "#3b3b1e" })
+require("black-metal").load()
