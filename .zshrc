@@ -5,6 +5,7 @@ alias cdn="cd ~/Documents/GitHub/notes"
 alias cdd="cd ~/.dotfiles/"
 alias cdv="cd ~/.config/nvim/"
 alias db="rust-gdb"
+alias g++="g++ -Wall -Weffc++ -Wextra -Wconversion -Wsign-conversion -Werror -std=c++20"
 
 export GOROOT="/usr/local/go"
 export CMAKEROOT="/usr/local/cmake-4.3.2-linux-x86_64"
@@ -15,6 +16,8 @@ export PSQLPATH="/Library/PostgreSQL/18/bin"
 export BINPATH="$HOME/.local/bin"
 export OPENCODEPATH=/home/justin/.opencode/bin
 export PATH=$PATH:$OPENCODEPATH:$BINPATH:$GOROOT/bin:$GOPATH/bin:$ZIGPATH:$PSQLPATH:$CMAKEROOT/bin:$NVIMPATH:
+
+export LESS='-R'
 
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
