@@ -12,7 +12,21 @@ vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 
-vim.opt.smartindent = true
+vim.opt.autoindent = true
+
+-- Always line up new lines with the first character of the previous line.
+-- Disables context-sensitive indentation set by filetype indent plugins.
+vim.api.nvim_create_augroup("PlainAutoindent", { clear = true })
+vim.api.nvim_create_autocmd("FileType", {
+	group = "PlainAutoindent",
+	pattern = "*",
+	callback = function()
+		vim.bo.smartindent = false
+		vim.bo.cindent = false
+		vim.bo.autoindent = true
+		vim.bo.indentexpr = ""
+	end,
+})
 
 vim.opt.wrap = false
 
@@ -312,20 +326,22 @@ vim.keymap.set("n", "<leader>hu", "<cmd>Gitsigns undo_stage_hunk<CR>", { desc = 
 vim.keymap.set("n", "<leader>hp", "<cmd>Gitsigns preview_hunk<CR>", { desc = "Preview hunk" })
 
 -- TROUBLE
-trouble.setup({})
+trouble.setup({
+  win = { position = "left" },
+})
 
 vim.keymap.set("n", "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>", { desc = "Diagnostics (Trouble)" })
 vim.keymap.set("n", "<leader>xX", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", { desc = "Buffer Diagnostics (Trouble)" })
 vim.keymap.set("n", "<leader>cs", "<cmd>Trouble symbols toggle focus=false<cr>", { desc = "Symbols (Trouble)" })
-vim.keymap.set("n", "<leader>cl", "<cmd>Trouble lsp toggle focus=false win.position=right<cr>", { desc = "LSP (Trouble)" })
-vim.keymap.set("n", "<leader>xL", "<cmd>Trouble loclist toggle<cr>", { desc = "Location List (Trouble)" })
-vim.keymap.set("n", "<leader>xQ", "<cmd>Trouble qflist toggle<cr>", { desc = "Quickfix List (Trouble)" })
+vim.keymap.set("n", "<leader>cr", "<cmd>Trouble lsp toggle focus=false<cr>", { desc = "LSP References (Trouble)" })
+vim.keymap.set("n", "<leader>xl", "<cmd>Trouble loclist toggle<cr>", { desc = "Location List (Trouble)" })
+vim.keymap.set("n", "<leader>xq", "<cmd>Trouble qflist toggle<cr>", { desc = "Quickfix List (Trouble)" })
+vim.keymap.set("n", "<leader>xh", function()
+  vim.cmd("Gitsigns setqflist all")
+  vim.cmd("Trouble qflist toggle")
+end, { desc = "Git Hunks (Trouble)" })
+vim.keymap.set("n", "<leader>xb", "<cmd>Gitsigns toggle_current_line_blame<CR>", { desc = "Toggle Git Blame" })
 
--- COLORSCHEME GRUVBOX
-require("gruvbox").setup({
-	terminal_colors = true,
-	contrast = "soft", -- can be "hard", "soft" or empty string
-	transparent_mode = true,
 -- COLORSCHEME BLACK METAL BATHORY
 require("black-metal").setup({
   theme = "bathory",
