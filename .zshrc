@@ -6,6 +6,7 @@ alias cdd="cd ~/.dotfiles/"
 alias cdv="cd ~/.config/nvim/"
 alias db="rust-gdb"
 alias g++="g++ -Wall -Weffc++ -Wextra -Wconversion -Wsign-conversion -Werror -std=c++20"
+alias gcc='gcc -Wall -Wextra -Wconversion -Wsign-conversion -Werror -pedantic -std=c17'
 
 export GOROOT="/usr/local/go"
 export CMAKEROOT="/usr/local/cmake-4.3.2-linux-x86_64"
